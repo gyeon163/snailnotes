@@ -13,10 +13,10 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username: snailnotes
-zhihu_username: snailnotes
+#weibo_username: snailnotes
+#zhihu_username: snailnotes
 github_username: snailnotes
-twitter_username: snailnotes
+#twitter_username: snailnotes
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -74,7 +74,7 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
+sidebar-about-description: "要做一个有 swag 的程序员 <br> "
 sidebar-avatar: https://github.com/gyeon163.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
