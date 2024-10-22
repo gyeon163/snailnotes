@@ -1,41 +1,44 @@
+
 ---
 layout: post
-title: "运行Jupyter Notebook服务"
-subtitle: "在Linux服务器上后台运行Jupyter Notebook服务"
+title: "运行Jupyter Lab服务"
+subtitle: "在Linux服务器上后台运行Jupyter Lab服务"
 author: "gyeon"
-date: '2023-01-05 13:15:00'
-header-style: 'text'
+date: 2023-01-05 13:15:00
+header-style: text
+header-mask: 0.4
 tags:
   - Python
   - Jupyter
 ---
 
-# 在Linux服务器上后台运行Jupyter Notebook服务
+# 在Linux服务器上后台运行Jupyter Lab服务
 
-在Linux服务器上后台运行Jupyter服务，可以通过以下步骤实现：
 
-## 1. 安装Jupyter Notebook
+在Linux服务器上后台运行Jupyter Lab服务，可以通过以下步骤实现：
+
+## 1. 安装Jupyter Lab
 
 如果你还没有安装Jupyter Notebook，可以使用以下命令进行安装：
 
 ```shell
-pip install jupyter
+pip install jupyterlab
 ```
 
 ## 2. 生成Jupyter配置文件
 运行以下命令生成配置文件：
 
 ```shell
-jupyter notebook --generate-config
+jupyter-lab --generate-config
 ```
 
-默认情况下，配置文件会生成在`~/.jupyter/jupyter_notebook_config.py`。
+默认情况下，配置文件会生成在`~/.jupyter/jupyter_lab_config.py`。
 
 ## 3. 设置Jupyter Notebook的密码
 使用以下命令设置密码：
 
 ```shell
-jupyter notebook password
+jupyter-lab password
 ```
 
 这将提示你输入并确认密码。密码将被哈希化并存储在配置文件中。
@@ -43,45 +46,12 @@ jupyter notebook password
 ## 4. 后台运行Jupyter Notebook
 要在后台运行Jupyter Notebook，可以使用nohup命令或者tmux/screen会话。
 
-### 4.1使用tmux或screen(十分建议)
-也可以使用tmux或screen会话管理器，这样可以在会话断开后仍然保持Jupyter运行。
-
-启动tmux或screen会话：
+### 4.1 使用nohup
+你可以使用nohup命令将Jupyter Lab放到后台运行，并将输出重定向到一个文件：
 
 ```shell
-tmux new -s jupyter
-```
-
-或者
-
-```shell
-screen -S jupyter
-```
-
-启动Jupyter Notebook：
-
-```shell
-jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser
-```
-
-使用Ctrl+B然后D（对于tmux）或Ctrl+A然后D（对于screen）分离会话。你可以随时重新连接：
-
-```shell
-tmux attach -t jupyter
-```
-
-或者
-
-```shell
-screen -r jupyter
-```
-
-### 4.2 使用nohup
-你可以使用nohup命令将Jupyter Notebook放到后台运行，并将输出重定向到一个文件：
-
-```shell
-nohup jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser > jupyter.log 2>&1 &
-echo $! > jupyter.pid
+nohup jupyter-lab --ip=0.0.0.0 --port=8888 --no-browser > jupyter.log 2>&1 &
+echo $! > jupyter.pid 
 ```
 
 解释：
@@ -95,15 +65,15 @@ jupyter.log 2>&1 &：将输出重定向到jupyter.log文件并在后台运行。
 ## 5. 配置防火墙（如有需要）
 确保你的服务器防火墙允许外部访问Jupyter Notebook使用的端口（如8888）。
 
-## 6. 访问Jupyter Notebook
+## 6. 访问Jupyter Lab
 使用浏览器访问http://your-server-ip:8888，并使用之前设置的密码进行登录。
 
-## 7. 终止Jupyter Notebook服务
+## 7. 终止Jupyter Lab服务
 tmux停止jupyter服务
 重新连接tmux ，然后直接ctrl + c,再把tmux窗口关了
 
 nohup
-要终止Jupyter Notebook服务，可以找到进程并终止：
+要终止Jupyter Lab服务，可以找到进程并终止：
 
 ```shell
 ps aux | grep jupyter
@@ -114,7 +84,7 @@ kill <process_id>
 这样，你就可以在Linux服务器上后台运行Jupyter服务了！
 
 ### ps aux | grep jupyter
-ps aux | grep jupyter 是一个在 Linux 系统上常用的命令，用来查找与 Jupyter Notebook 相关的正在运行的进程。让我们逐步解释这个命令的含义：
+ps aux | grep jupyter 是一个在 Linux 系统上常用的命令，用来查找与 Jupyter Lab 相关的正在运行的进程。让我们逐步解释这个命令的含义：
 
 ```shell
 ps aux:
