@@ -3,15 +3,14 @@ layout: post
 title: "运行Jupyter Lab服务"
 subtitle: "在Linux服务器上后台运行Jupyter Lab服务"
 author: "gyeon"
-date: 2023-01-05 13:15:00
-header-style: text
+date: 2023-01-05 17:15:00
+header-img: "img/post-bg-python.jpg"
 header-mask: 0.4
 tags:
   - Python
   - Jupyter
 ---
 
-# 在Linux服务器上后台运行Jupyter Lab服务
 
 
 在Linux服务器上后台运行Jupyter Lab服务，可以通过以下步骤实现：

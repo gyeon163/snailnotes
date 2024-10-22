@@ -3,14 +3,14 @@ layout: post
 title: "运行Jupyter Notebook服务"
 subtitle: "在Linux服务器上后台运行Jupyter Notebook服务"
 author: "gyeon"
-date: '2023-01-05 13:15:00'
-header-style: 'text'
+date: '2023-01-05 15:15:00'
+header-img: "img/post-bg-python.jpg"
+header-mask: 0.4
 tags:
   - Python
   - Jupyter
 ---
 
-# 在Linux服务器上后台运行Jupyter Notebook服务
 
 在Linux服务器上后台运行Jupyter服务，可以通过以下步骤实现：
 
