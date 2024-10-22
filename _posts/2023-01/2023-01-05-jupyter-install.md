@@ -44,7 +44,7 @@ jupyter notebook password
 ## 4. 后台运行Jupyter Notebook
 要在后台运行Jupyter Notebook，可以使用nohup命令或者tmux/screen会话。
 
-###　4.1使用tmux或screen(十分建议)
+### 4.1使用tmux或screen(十分建议)
 也可以使用tmux或screen会话管理器，这样可以在会话断开后仍然保持Jupyter运行。
 
 启动tmux或screen会话：
